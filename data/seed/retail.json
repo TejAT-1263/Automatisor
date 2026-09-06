@@ -1,0 +1,143 @@
+{
+  "sector": {
+    "slug": "retail",
+    "name": "Retail",
+    "description": "Large-format general merchandise, grocery, and specialty retail chains."
+  },
+  "companies": [
+    {
+      "slug": "walmart",
+      "name": "Walmart Inc.",
+      "is_public": true,
+      "ticker": "WMT",
+      "hq_location": "Bentonville, AR",
+      "founded_year": null,
+      "description": "Largest US general merchandise and grocery retailer by revenue, operating supercenters, discount stores, and Sam's Club warehouse clubs.",
+      "description_source": {
+        "url": "https://stock.walmart.com/_assets/_81906fd8150d99dd80e92168ae1aff5d/walmart/db/950/9949/annual_report/Walmart+2025+Annual+Report.pdf",
+        "publisher": "Walmart Inc. 2025 Annual Report", "source_type": "sec_filing", "published_date": "2025-03-01", "retrieved_date": "2026-09-04"
+      },
+      "metrics": [
+        {"metric_name": "revenue", "value_numeric": 681000, "unit": "usd_millions", "period": "FY2025", "as_of_date": "2025-01-31",
+         "source": {"url": "https://stock.walmart.com/_assets/_81906fd8150d99dd80e92168ae1aff5d/walmart/db/950/9949/annual_report/Walmart+2025+Annual+Report.pdf", "publisher": "Walmart Inc. 2025 Annual Report", "source_type": "sec_filing", "published_date": "2025-03-01", "retrieved_date": "2026-09-04"},
+         "notes": "Total revenue; net sales alone were $674.5B."},
+        {"metric_name": "revenue_growth_yoy", "value_numeric": 5.1, "unit": "percent", "period": "FY2025", "as_of_date": "2025-01-31",
+         "source": {"url": "https://stock.walmart.com/_assets/_81906fd8150d99dd80e92168ae1aff5d/walmart/db/950/9949/annual_report/Walmart+2025+Annual+Report.pdf", "publisher": "Walmart Inc. 2025 Annual Report", "source_type": "sec_filing", "published_date": "2025-03-01", "retrieved_date": "2026-09-04"},
+         "notes": "Operating income grew faster, +8.6% YoY, indicating margin expansion; exact operating margin % not disclosed in this source so not recorded as a separate metric."},
+        {"metric_name": "headcount", "value_numeric": 2100000, "unit": "count", "period": "FY2025", "as_of_date": "2025-01-31",
+         "source": {"url": "https://stock.walmart.com/_assets/_81906fd8150d99dd80e92168ae1aff5d/walmart/db/950/9949/annual_report/Walmart+2025+Annual+Report.pdf", "publisher": "Walmart Inc. 2025 Annual Report", "source_type": "sec_filing", "published_date": "2025-03-01", "retrieved_date": "2026-09-04"},
+         "notes": "Approximate: ~1.6M US associates + ~0.5M international associates, company-stated rounded figures."}
+      ],
+      "signals": []
+    },
+    {
+      "slug": "target",
+      "name": "Target Corporation",
+      "is_public": true,
+      "ticker": "TGT",
+      "hq_location": "Minneapolis, MN",
+      "founded_year": null,
+      "description": "General merchandise retailer operating large-format stores across the US, with a full-year 2025 marked by declining sales and cost-cutting.",
+      "description_source": {
+        "url": "https://corporate.target.com/press/release/2026/03/target-corporation-reports-fourth-quarter-and-full-year-2025-earnings",
+        "publisher": "Target Corporation", "source_type": "earnings_report", "published_date": "2026-03-04", "retrieved_date": "2026-09-04"
+      },
+      "metrics": [
+        {"metric_name": "revenue", "value_numeric": 104800, "unit": "usd_millions", "period": "FY2025", "as_of_date": "2026-01-31",
+         "source": {"url": "https://corporate.target.com/press/release/2026/03/target-corporation-reports-fourth-quarter-and-full-year-2025-earnings", "publisher": "Target Corporation", "source_type": "earnings_report", "published_date": "2026-03-04", "retrieved_date": "2026-09-04"},
+         "notes": "Down from $106.6B in FY2024."},
+        {"metric_name": "revenue_growth_yoy", "value_numeric": -1.7, "unit": "percent", "period": "FY2025", "as_of_date": "2026-01-31",
+         "source": {"url": "https://corporate.target.com/press/release/2026/03/target-corporation-reports-fourth-quarter-and-full-year-2025-earnings", "publisher": "Target Corporation", "source_type": "earnings_report", "published_date": "2026-03-04", "retrieved_date": "2026-09-04"},
+         "notes": null},
+        {"metric_name": "operating_margin_pct", "value_numeric": 4.9, "unit": "percent", "period": "FY2025", "as_of_date": "2026-01-31",
+         "source": {"url": "https://corporate.target.com/press/release/2026/03/target-corporation-reports-fourth-quarter-and-full-year-2025-earnings", "publisher": "Target Corporation", "source_type": "earnings_report", "published_date": "2026-03-04", "retrieved_date": "2026-09-04"},
+         "notes": "GAAP; operating income $5.117B, down 8.1% YoY."},
+        {"metric_name": "operating_margin_pct", "value_numeric": 4.6, "unit": "percent", "period": "FY2025", "as_of_date": "2026-01-31",
+         "source": {"url": "https://corporate.target.com/press/release/2026/03/target-corporation-reports-fourth-quarter-and-full-year-2025-earnings", "publisher": "Target Corporation", "source_type": "earnings_report", "published_date": "2026-03-04", "retrieved_date": "2026-09-04"},
+         "notes": "Adjusted, excludes business transformation costs and a litigation settlement."}
+      ],
+      "signals": [
+        {"signal_type": "other", "description": "Full-year net sales declined 1.7% to $104.8B and operating income fell 8.1%, including business transformation costs and a litigation settlement charge.", "signal_date": "2026-01-31",
+         "source": {"url": "https://corporate.target.com/press/release/2026/03/target-corporation-reports-fourth-quarter-and-full-year-2025-earnings", "publisher": "Target Corporation", "source_type": "earnings_report", "published_date": "2026-03-04", "retrieved_date": "2026-09-04"}}
+      ]
+    },
+    {
+      "slug": "costco",
+      "name": "Costco Wholesale Corporation",
+      "is_public": true,
+      "ticker": "COST",
+      "hq_location": "Issaquah, WA",
+      "founded_year": null,
+      "description": "Membership warehouse club retailer; only quarterly (not full fiscal-year) 2025/2026 figures were available at time of sourcing.",
+      "description_source": {
+        "url": "https://seekingalpha.com/pr/20337580",
+        "publisher": "Costco Wholesale Corporation (via Seeking Alpha)", "source_type": "earnings_report", "published_date": "2025-12-11", "retrieved_date": "2026-09-04"
+      },
+      "metrics": [
+        {"metric_name": "revenue", "value_numeric": 67310, "unit": "usd_millions", "period": "Q1FY2026", "as_of_date": "2025-11-23",
+         "source": {"url": "https://seekingalpha.com/pr/20337580", "publisher": "Costco Wholesale Corporation (via Seeking Alpha)", "source_type": "earnings_report", "published_date": "2025-12-11", "retrieved_date": "2026-09-04"},
+         "notes": "12 weeks ended Nov 23, 2025. Total revenue incl. membership fees ($1.33B); net sales alone were $65.98B. NOT a full fiscal year figure — full FY2025/FY2026 annual revenue was not available from sourced pages."},
+        {"metric_name": "revenue_growth_yoy", "value_numeric": 8.2, "unit": "percent", "period": "Q1FY2026", "as_of_date": "2025-11-23",
+         "source": {"url": "https://seekingalpha.com/pr/20337580", "publisher": "Costco Wholesale Corporation (via Seeking Alpha)", "source_type": "earnings_report", "published_date": "2025-12-11", "retrieved_date": "2026-09-04"},
+         "notes": "Net sales growth for the quarter; comparable sales grew 6.4%."},
+        {"metric_name": "operating_margin_pct", "value_numeric": 3.66, "unit": "percent", "period": "Q1FY2026", "as_of_date": "2025-11-23",
+         "source": {"url": "https://seekingalpha.com/pr/20337580", "publisher": "Costco Wholesale Corporation (via Seeking Alpha)", "source_type": "earnings_report", "published_date": "2025-12-11", "retrieved_date": "2026-09-04"},
+         "notes": "Derived: operating income $2.46B / total revenue $67.31B."}
+      ],
+      "signals": []
+    },
+    {
+      "slug": "kroger",
+      "name": "The Kroger Co.",
+      "is_public": true,
+      "ticker": "KR",
+      "hq_location": "Cincinnati, OH",
+      "founded_year": null,
+      "description": "Grocery supermarket chain; FY2025 results were weighed down by a large fulfillment network impairment charge.",
+      "description_source": {
+        "url": "https://ir.kroger.com/news/news-details/2026/Kroger-Reports-Fourth-Quarter-and-Full-Year-2025-Results-andAnnounces-Guidance-for-2026/default.aspx",
+        "publisher": "Kroger Investor Relations", "source_type": "earnings_report", "published_date": "2026-03-06", "retrieved_date": "2026-09-04"
+      },
+      "metrics": [
+        {"metric_name": "revenue", "value_numeric": 147642, "unit": "usd_millions", "period": "FY2025", "as_of_date": "2026-01-31",
+         "source": {"url": "https://ir.kroger.com/news/news-details/2026/Kroger-Reports-Fourth-Quarter-and-Full-Year-2025-Results-andAnnounces-Guidance-for-2026/default.aspx", "publisher": "Kroger Investor Relations", "source_type": "earnings_report", "published_date": "2026-03-06", "retrieved_date": "2026-09-04"},
+         "notes": null},
+        {"metric_name": "operating_margin_pct", "value_numeric": 1.3, "unit": "percent", "period": "FY2025", "as_of_date": "2026-01-31",
+         "source": {"url": "https://ir.kroger.com/news/news-details/2026/Kroger-Reports-Fourth-Quarter-and-Full-Year-2025-Results-andAnnounces-Guidance-for-2026/default.aspx", "publisher": "Kroger Investor Relations", "source_type": "earnings_report", "published_date": "2026-03-06", "retrieved_date": "2026-09-04"},
+         "notes": "GAAP; operating profit $1.9B, depressed by a $2.5B fulfillment network impairment charge."},
+        {"metric_name": "operating_margin_pct", "value_numeric": 3.3, "unit": "percent", "period": "FY2025", "as_of_date": "2026-01-31",
+         "source": {"url": "https://ir.kroger.com/news/news-details/2026/Kroger-Reports-Fourth-Quarter-and-Full-Year-2025-Results-andAnnounces-Guidance-for-2026/default.aspx", "publisher": "Kroger Investor Relations", "source_type": "earnings_report", "published_date": "2026-03-06", "retrieved_date": "2026-09-04"},
+         "notes": "Adjusted FIFO operating margin ($4.9B / $147.642B), excludes the impairment charge."},
+        {"metric_name": "headcount", "value_numeric": 400000, "unit": "count", "period": "FY2025", "as_of_date": "2026-01-31",
+         "source": {"url": "https://ir.kroger.com/news/news-details/2026/Kroger-Reports-Fourth-Quarter-and-Full-Year-2025-Results-andAnnounces-Guidance-for-2026/default.aspx", "publisher": "Kroger Investor Relations", "source_type": "earnings_report", "published_date": "2026-03-06", "retrieved_date": "2026-09-04"},
+         "notes": "Company states 'more than 400,000 associates' — not a precise year-end count."}
+      ],
+      "signals": [
+        {"signal_type": "other", "description": "Recorded a $2.5 billion fulfillment network impairment charge in FY2025, cutting GAAP operating margin to 1.3% versus an adjusted 3.3%.", "signal_date": "2026-01-31",
+         "source": {"url": "https://ir.kroger.com/news/news-details/2026/Kroger-Reports-Fourth-Quarter-and-Full-Year-2025-Results-andAnnounces-Guidance-for-2026/default.aspx", "publisher": "Kroger Investor Relations", "source_type": "earnings_report", "published_date": "2026-03-06", "retrieved_date": "2026-09-04"}}
+      ]
+    },
+    {
+      "slug": "best-buy",
+      "name": "Best Buy Co., Inc.",
+      "is_public": true,
+      "ticker": "BBY",
+      "hq_location": "Richfield, MN",
+      "founded_year": null,
+      "description": "Consumer electronics retailer undergoing repeated restructuring, including AI-driven cost cuts to services staffing.",
+      "description_source": {
+        "url": "https://finance.yahoo.com/news/best-buy-begins-job-cuts-091220914.html",
+        "publisher": "Yahoo Finance", "source_type": "news_article", "published_date": "2025-09-25", "retrieved_date": "2026-09-04"
+      },
+      "metrics": [
+        {"metric_name": "headcount", "value_numeric": 80000, "unit": "count", "period": "FY2026", "as_of_date": "2025-09-25",
+         "source": {"url": "https://finance.yahoo.com/news/best-buy-begins-job-cuts-091220914.html", "publisher": "Yahoo Finance", "source_type": "news_article", "published_date": "2025-09-25", "retrieved_date": "2026-09-04"},
+         "notes": "Article states the company 'employs over 80,000 people total' — a floor, not a precise count."}
+      ],
+      "signals": [
+        {"signal_type": "layoff", "description": "Job cuts affecting customer care, in-home field staff, and Geek Squad support teams; company disclosed $114M in restructuring charges in Q2 FY2026, continuing a pattern of reallocating headcount toward AI initiatives that began in 2024.", "signal_date": "2025-09-25",
+         "source": {"url": "https://finance.yahoo.com/news/best-buy-begins-job-cuts-091220914.html", "publisher": "Yahoo Finance", "source_type": "news_article", "published_date": "2025-09-25", "retrieved_date": "2026-09-04"}}
+      ]
+    }
+  ]
+}

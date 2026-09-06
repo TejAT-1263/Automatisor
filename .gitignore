@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+db/agent.db
+.pytest_cache/
+.streamlit/
+*.egg-info/
+.DS_Store
+PROJECT_NOTES.md
+.vscode/
+manual_agent_grid.py

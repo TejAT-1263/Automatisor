@@ -1,0 +1,157 @@
+{
+  "sector": {
+    "slug": "logistics",
+    "name": "Logistics",
+    "description": "Parcel delivery, less-than-truckload freight, and contract warehousing/fulfillment operators — the closest public-market proxy for Automatisor's own intralogistics automation market."
+  },
+  "companies": [
+    {
+      "slug": "fedex",
+      "name": "FedEx Corporation",
+      "is_public": true,
+      "ticker": "FDX",
+      "hq_location": "Memphis, TN",
+      "founded_year": null,
+      "description": "Global parcel and freight delivery operator, mid-way through a multi-year structural cost-reduction program (DRIVE).",
+      "description_source": {
+        "url": "https://investors.fedex.com/news-and-events/investor-news/investor-news-details/2025/FedEx-Reports-Fourth-Quarter-Diluted-EPS-of-6-88-and-Adjusted-Diluted-EPS-of-6-07/default.aspx",
+        "publisher": "FedEx Investor Relations", "source_type": "earnings_report", "published_date": "2025-06-24", "retrieved_date": "2026-09-04"
+      },
+      "metrics": [
+        {"metric_name": "revenue", "value_numeric": 87900, "unit": "usd_millions", "period": "FY2025", "as_of_date": "2025-05-31",
+         "source": {"url": "https://investors.fedex.com/news-and-events/investor-news/investor-news-details/2025/FedEx-Reports-Fourth-Quarter-Diluted-EPS-of-6-88-and-Adjusted-Diluted-EPS-of-6-07/default.aspx", "publisher": "FedEx Investor Relations", "source_type": "earnings_report", "published_date": "2025-06-24", "retrieved_date": "2026-09-04"},
+         "notes": null},
+        {"metric_name": "operating_margin_pct", "value_numeric": 7.0, "unit": "percent", "period": "FY2025", "as_of_date": "2025-05-31",
+         "source": {"url": "https://investors.fedex.com/news-and-events/investor-news/investor-news-details/2025/FedEx-Reports-Fourth-Quarter-Diluted-EPS-of-6-88-and-Adjusted-Diluted-EPS-of-6-07/default.aspx", "publisher": "FedEx Investor Relations", "source_type": "earnings_report", "published_date": "2025-06-24", "retrieved_date": "2026-09-04"},
+         "notes": "Adjusted (non-GAAP); adjusted operating income $6.12B vs. $5.56B GAAP."},
+        {"metric_name": "headcount", "value_numeric": 500000, "unit": "count", "period": "FY2025", "as_of_date": "2025-05-31",
+         "source": {"url": "https://investors.fedex.com/news-and-events/investor-news/investor-news-details/2025/FedEx-Reports-Fourth-Quarter-Diluted-EPS-of-6-88-and-Adjusted-Diluted-EPS-of-6-07/default.aspx", "publisher": "FedEx Investor Relations", "source_type": "earnings_report", "published_date": "2025-06-24", "retrieved_date": "2026-09-04"},
+         "notes": "Company states 'more than 500,000 employees' globally — a floor, not a precise count."}
+      ],
+      "signals": [
+        {"signal_type": "other", "description": "Hit its $2.2 billion FY2025 DRIVE structural cost-reduction target, bringing total cost reductions to $4.0 billion versus the FY2023 baseline.", "signal_date": "2025-05-31",
+         "source": {"url": "https://investors.fedex.com/news-and-events/investor-news/investor-news-details/2025/FedEx-Reports-Fourth-Quarter-Diluted-EPS-of-6-88-and-Adjusted-Diluted-EPS-of-6-07/default.aspx", "publisher": "FedEx Investor Relations", "source_type": "earnings_report", "published_date": "2025-06-24", "retrieved_date": "2026-09-04"}}
+      ]
+    },
+    {
+      "slug": "ups",
+      "name": "United Parcel Service, Inc.",
+      "is_public": true,
+      "ticker": "UPS",
+      "hq_location": "Atlanta, GA",
+      "founded_year": null,
+      "description": "Global parcel delivery operator mid-way through a large automation-driven restructuring that has cut tens of thousands of jobs while reducing low-margin Amazon delivery volume.",
+      "description_source": {
+        "url": "https://www.inc.com/moses-jeanfrancois/ups-cut-48000-jobs-doubled-down-on-automation-just-beat-wall-street-expectations/91380935",
+        "publisher": "Inc.com", "source_type": "news_article", "published_date": null, "retrieved_date": "2026-09-04"
+      },
+      "metrics": [
+        {"metric_name": "revenue", "value_numeric": 22800, "unit": "usd_millions", "period": "Q2FY2026", "as_of_date": "2026-06-30",
+         "source": {"url": "https://www.inc.com/moses-jeanfrancois/ups-cut-48000-jobs-doubled-down-on-automation-just-beat-wall-street-expectations/91380935", "publisher": "Inc.com", "source_type": "news_article", "published_date": null, "retrieved_date": "2026-09-04"},
+         "notes": "Consolidated quarterly revenue, NOT a full fiscal year figure. Article did not report full-year 2025 revenue."},
+        {"metric_name": "operating_margin_pct", "value_numeric": 4.08, "unit": "percent", "period": "Q2FY2026", "as_of_date": "2026-06-30",
+         "source": {"url": "https://www.inc.com/moses-jeanfrancois/ups-cut-48000-jobs-doubled-down-on-automation-just-beat-wall-street-expectations/91380935", "publisher": "Inc.com", "source_type": "news_article", "published_date": null, "retrieved_date": "2026-09-04"},
+         "notes": "Derived: operating profit $930M / revenue $22.8B for the quarter."}
+      ],
+      "signals": [
+        {"signal_type": "layoff", "description": "Eliminated 48,000 positions in 2025 (34,000 operational, 14,000 management) as part of an automation-driven network restructuring; announced a further 30,000 operational cuts in January 2026, alongside roughly 25 million fewer operational hours.", "signal_date": "2025-12-31",
+         "source": {"url": "https://www.inc.com/moses-jeanfrancois/ups-cut-48000-jobs-doubled-down-on-automation-just-beat-wall-street-expectations/91380935", "publisher": "Inc.com", "source_type": "news_article", "published_date": null, "retrieved_date": "2026-09-04"}},
+        {"signal_type": "automation_investment", "description": "CEO Carol Tomé described an 18-month initiative to build 'a leaner, more automated, more agile network,' targeting $3 billion in cost savings by end of 2026 through AI and automation investment plus reduced low-margin Amazon volume.", "signal_date": "2026-01-01",
+         "source": {"url": "https://www.inc.com/moses-jeanfrancois/ups-cut-48000-jobs-doubled-down-on-automation-just-beat-wall-street-expectations/91380935", "publisher": "Inc.com", "source_type": "news_article", "published_date": null, "retrieved_date": "2026-09-04"}}
+      ]
+    },
+    {
+      "slug": "xpo",
+      "name": "XPO, Inc.",
+      "is_public": true,
+      "ticker": "XPO",
+      "hq_location": "Greenwich, CT",
+      "founded_year": null,
+      "description": "North American and European less-than-truckload (LTL) freight carrier.",
+      "description_source": {
+        "url": "https://investors.xpo.com/news-releases/news-release-details/xpo-reports-fourth-quarter-2025-results",
+        "publisher": "XPO, Inc. Investor Relations", "source_type": "earnings_report", "published_date": "2026-01-01", "retrieved_date": "2026-09-04"
+      },
+      "metrics": [
+        {"metric_name": "revenue", "value_numeric": 8157, "unit": "usd_millions", "period": "FY2025", "as_of_date": "2025-12-31",
+         "source": {"url": "https://investors.xpo.com/news-releases/news-release-details/xpo-reports-fourth-quarter-2025-results", "publisher": "XPO, Inc. Investor Relations", "source_type": "earnings_report", "published_date": "2026-01-01", "retrieved_date": "2026-09-04"},
+         "notes": "Up from $8,072M in FY2024."},
+        {"metric_name": "revenue_growth_yoy", "value_numeric": 1.1, "unit": "percent", "period": "FY2025", "as_of_date": "2025-12-31",
+         "source": {"url": "https://investors.xpo.com/news-releases/news-release-details/xpo-reports-fourth-quarter-2025-results", "publisher": "XPO, Inc. Investor Relations", "source_type": "earnings_report", "published_date": "2026-01-01", "retrieved_date": "2026-09-04"},
+         "notes": null},
+        {"metric_name": "operating_margin_pct", "value_numeric": 8.0, "unit": "percent", "period": "FY2025", "as_of_date": "2025-12-31",
+         "source": {"url": "https://investors.xpo.com/news-releases/news-release-details/xpo-reports-fourth-quarter-2025-results", "publisher": "XPO, Inc. Investor Relations", "source_type": "earnings_report", "published_date": "2026-01-01", "retrieved_date": "2026-09-04"},
+         "notes": "Derived: operating income $656M / revenue $8,157M."},
+        {"metric_name": "headcount", "value_numeric": 37000, "unit": "count", "period": "FY2025", "as_of_date": "2025-12-31",
+         "source": {"url": "https://investors.xpo.com/news-releases/news-release-details/xpo-reports-fourth-quarter-2025-results", "publisher": "XPO, Inc. Investor Relations", "source_type": "earnings_report", "published_date": "2026-01-01", "retrieved_date": "2026-09-04"},
+         "notes": "Across North America and Europe, per company description section of the release."}
+      ],
+      "signals": []
+    },
+    {
+      "slug": "old-dominion",
+      "name": "Old Dominion Freight Line, Inc.",
+      "is_public": true,
+      "ticker": "ODFL",
+      "hq_location": "Thomasville, NC",
+      "founded_year": null,
+      "description": "Premium-service North American LTL freight carrier known for a historically low operating ratio; volumes softened through 2025.",
+      "description_source": {
+        "url": "https://ir.odfl.com/news-events/press-releases/detail/329/old-dominion-freight-line-reports-second-quarter-2025",
+        "publisher": "Old Dominion Freight Line Investor Relations", "source_type": "earnings_report", "published_date": "2025-07-23", "retrieved_date": "2026-09-04"
+      },
+      "metrics": [
+        {"metric_name": "revenue", "value_numeric": 1407.724, "unit": "usd_millions", "period": "Q2FY2025", "as_of_date": "2025-06-30",
+         "source": {"url": "https://ir.odfl.com/news-events/press-releases/detail/329/old-dominion-freight-line-reports-second-quarter-2025", "publisher": "Old Dominion Freight Line Investor Relations", "source_type": "earnings_report", "published_date": "2025-07-23", "retrieved_date": "2026-09-04"},
+         "notes": "Quarterly, not annual. LTL services revenue alone was $1,395.1M."},
+        {"metric_name": "revenue_growth_yoy", "value_numeric": -6.1, "unit": "percent", "period": "Q2FY2025", "as_of_date": "2025-06-30",
+         "source": {"url": "https://ir.odfl.com/news-events/press-releases/detail/329/old-dominion-freight-line-reports-second-quarter-2025", "publisher": "Old Dominion Freight Line Investor Relations", "source_type": "earnings_report", "published_date": "2025-07-23", "retrieved_date": "2026-09-04"},
+         "notes": "Driven by a 9.3% decline in LTL tons per day, partly offset by a 5.3% increase in revenue per hundredweight ex-fuel."},
+        {"metric_name": "operating_margin_pct", "value_numeric": 25.4, "unit": "percent", "period": "Q2FY2025", "as_of_date": "2025-06-30",
+         "source": {"url": "https://ir.odfl.com/news-events/press-releases/detail/329/old-dominion-freight-line-reports-second-quarter-2025", "publisher": "Old Dominion Freight Line Investor Relations", "source_type": "earnings_report", "published_date": "2025-07-23", "retrieved_date": "2026-09-04"},
+         "notes": "Derived as 100 minus the reported operating ratio of 74.6% — LTL carriers report performance as operating ratio, not operating margin; this project converts it for schema consistency."},
+        {"metric_name": "headcount", "value_numeric": 21621, "unit": "count", "period": "Q2FY2025", "as_of_date": "2025-06-30",
+         "source": {"url": "https://ir.odfl.com/news-events/press-releases/detail/329/old-dominion-freight-line-reports-second-quarter-2025", "publisher": "Old Dominion Freight Line Investor Relations", "source_type": "earnings_report", "published_date": "2025-07-23", "retrieved_date": "2026-09-04"},
+         "notes": "Average active full-time employees for the quarter."},
+        {"metric_name": "headcount_growth_yoy_pct", "value_numeric": -4.8, "unit": "percent", "period": "Q2FY2025", "as_of_date": "2025-06-30",
+         "source": {"url": "https://ir.odfl.com/news-events/press-releases/detail/329/old-dominion-freight-line-reports-second-quarter-2025", "publisher": "Old Dominion Freight Line Investor Relations", "source_type": "earnings_report", "published_date": "2025-07-23", "retrieved_date": "2026-09-04"},
+         "notes": null}
+      ],
+      "signals": [
+        {"signal_type": "other", "description": "Both revenue (-6.1% YoY) and average headcount (-4.8% YoY) declined in Q2 2025 amid soft LTL freight demand, with tons per day down 9.3%; the company held pricing discipline (+5.3% revenue per hundredweight ex-fuel) rather than chasing volume.", "signal_date": "2025-06-30",
+         "source": {"url": "https://ir.odfl.com/news-events/press-releases/detail/329/old-dominion-freight-line-reports-second-quarter-2025", "publisher": "Old Dominion Freight Line Investor Relations", "source_type": "earnings_report", "published_date": "2025-07-23", "retrieved_date": "2026-09-04"}}
+      ]
+    },
+    {
+      "slug": "gxo",
+      "name": "GXO Logistics, Inc.",
+      "is_public": true,
+      "ticker": "GXO",
+      "hq_location": "Greenwich, CT",
+      "founded_year": null,
+      "description": "Contract warehousing and e-commerce fulfillment operator — the closest direct comparable to Automatisor's own customer base of intralogistics automation buyers.",
+      "description_source": {
+        "url": "https://investors.gxo.com/news-releases/news-release-details/gxo-reports-fourth-quarter-and-full-year-2025-results",
+        "publisher": "GXO Logistics Investor Relations", "source_type": "earnings_report", "published_date": "2026-02-01", "retrieved_date": "2026-09-04"
+      },
+      "metrics": [
+        {"metric_name": "revenue", "value_numeric": 13178, "unit": "usd_millions", "period": "FY2025", "as_of_date": "2025-12-31",
+         "source": {"url": "https://investors.gxo.com/news-releases/news-release-details/gxo-reports-fourth-quarter-and-full-year-2025-results", "publisher": "GXO Logistics Investor Relations", "source_type": "earnings_report", "published_date": "2026-02-01", "retrieved_date": "2026-09-04"},
+         "notes": null},
+        {"metric_name": "revenue_growth_yoy", "value_numeric": 12.5, "unit": "percent", "period": "FY2025", "as_of_date": "2025-12-31",
+         "source": {"url": "https://investors.gxo.com/news-releases/news-release-details/gxo-reports-fourth-quarter-and-full-year-2025-results", "publisher": "GXO Logistics Investor Relations", "source_type": "earnings_report", "published_date": "2026-02-01", "retrieved_date": "2026-09-04"},
+         "notes": "Total growth; organic growth was 3.9% (i.e., ~8.6pp came from acquisitions/new business wins, not the base business)."},
+        {"metric_name": "operating_margin_pct", "value_numeric": 1.9, "unit": "percent", "period": "FY2025", "as_of_date": "2025-12-31",
+         "source": {"url": "https://investors.gxo.com/news-releases/news-release-details/gxo-reports-fourth-quarter-and-full-year-2025-results", "publisher": "GXO Logistics Investor Relations", "source_type": "earnings_report", "published_date": "2026-02-01", "retrieved_date": "2026-09-04"},
+         "notes": "Thin margin typical of contract logistics; operating income $245M on $13,178M revenue."},
+        {"metric_name": "headcount", "value_numeric": 150000, "unit": "count", "period": "FY2025", "as_of_date": "2025-12-31",
+         "source": {"url": "https://investors.gxo.com/news-releases/news-release-details/gxo-reports-fourth-quarter-and-full-year-2025-results", "publisher": "GXO Logistics Investor Relations", "source_type": "earnings_report", "published_date": "2026-02-01", "retrieved_date": "2026-09-04"},
+         "notes": "Company states 'more than 150,000 team members across more than 1,000 facilities' — a floor, not a precise count."}
+      ],
+      "signals": [
+        {"signal_type": "automation_investment", "description": "CEO stated that in 2026 GXO will 'steadily increase the deployment of AI and robotics across our network,' framed as a long-term efficiency and margin driver — directly relevant given the company's already-thin 1.9% operating margin.", "signal_date": "2026-02-01",
+         "source": {"url": "https://investors.gxo.com/news-releases/news-release-details/gxo-reports-fourth-quarter-and-full-year-2025-results", "publisher": "GXO Logistics Investor Relations", "source_type": "earnings_report", "published_date": "2026-02-01", "retrieved_date": "2026-09-04"}}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "sector": {
+    "slug": "tech",
+    "name": "Technology",
+    "description": "Enterprise software and platform companies."
+  },
+  "companies": [
+    {
+      "slug": "microsoft",
+      "name": "Microsoft Corporation",
+      "is_public": true,
+      "ticker": "MSFT",
+      "hq_location": "Redmond, WA",
+      "founded_year": null,
+      "description": "Diversified enterprise software, cloud infrastructure (Azure), and productivity platform company.",
+      "description_source": {
+        "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2025-q4/press-release-webcast",
+        "publisher": "Microsoft Investor Relations",
+        "source_type": "earnings_report",
+        "published_date": "2025-07-30",
+        "retrieved_date": "2026-09-04"
+      },
+      "metrics": [
+        {"metric_name": "revenue", "value_numeric": 281724, "unit": "usd_millions", "period": "FY2025", "as_of_date": "2025-06-30",
+         "source": {"url": "https://www.microsoft.com/en-us/investor/earnings/fy-2025-q4/press-release-webcast", "publisher": "Microsoft Investor Relations", "source_type": "earnings_report", "published_date": "2025-07-30", "retrieved_date": "2026-09-04"},
+         "notes": "Full fiscal year 2025 (ended June 30, 2025) total revenue, up 15% YoY."},
+        {"metric_name": "revenue_growth_yoy", "value_numeric": 15, "unit": "percent", "period": "FY2025", "as_of_date": "2025-06-30",
+         "source": {"url": "https://www.microsoft.com/en-us/investor/earnings/fy-2025-q4/press-release-webcast", "publisher": "Microsoft Investor Relations", "source_type": "earnings_report", "published_date": "2025-07-30", "retrieved_date": "2026-09-04"},
+         "notes": null},
+        {"metric_name": "operating_margin_pct", "value_numeric": 45.6, "unit": "percent", "period": "FY2025", "as_of_date": "2025-06-30",
+         "source": {"url": "https://www.microsoft.com/en-us/investor/earnings/fy-2025-q4/press-release-webcast", "publisher": "Microsoft Investor Relations", "source_type": "earnings_report", "published_date": "2025-07-30", "retrieved_date": "2026-09-04"},
+         "notes": "Derived: operating income $128.528B / revenue $281.724B. Not a company-stated percentage."}
+      ],
+      "signals": []
+    },
+    {
+      "slug": "salesforce",
+      "name": "Salesforce, Inc.",
+      "is_public": true,
+      "ticker": "CRM",
+      "hq_location": "San Francisco, CA",
+      "founded_year": null,
+      "description": "CRM and enterprise cloud application platform; expanding into agentic AI products (Agentforce).",
+      "description_source": {
+        "url": "https://investor.salesforce.com/news/news-details/2025/Salesforce-Announces-Fourth-Quarter-and-Fiscal-Year-2025-Results/default.aspx",
+        "publisher": "Salesforce Investor Relations", "source_type": "earnings_report", "published_date": "2025-02-26", "retrieved_date": "2026-09-04"
+      },
+      "metrics": [
+        {"metric_name": "revenue", "value_numeric": 37895, "unit": "usd_millions", "period": "FY2025", "as_of_date": "2025-01-31",
+         "source": {"url": "https://investor.salesforce.com/news/news-details/2025/Salesforce-Announces-Fourth-Quarter-and-Fiscal-Year-2025-Results/default.aspx", "publisher": "Salesforce Investor Relations", "source_type": "earnings_report", "published_date": "2025-02-26", "retrieved_date": "2026-09-04"},
+         "notes": null},
+        {"metric_name": "revenue_growth_yoy", "value_numeric": 9, "unit": "percent", "period": "FY2025", "as_of_date": "2025-01-31",
+         "source": {"url": "https://investor.salesforce.com/news/news-details/2025/Salesforce-Announces-Fourth-Quarter-and-Fiscal-Year-2025-Results/default.aspx", "publisher": "Salesforce Investor Relations", "source_type": "earnings_report", "published_date": "2025-02-26", "retrieved_date": "2026-09-04"},
+         "notes": "Reported and constant-currency growth were both 9%."},
+        {"metric_name": "operating_margin_pct", "value_numeric": 19.0, "unit": "percent", "period": "FY2025", "as_of_date": "2025-01-31",
+         "source": {"url": "https://investor.salesforce.com/news/news-details/2025/Salesforce-Announces-Fourth-Quarter-and-Fiscal-Year-2025-Results/default.aspx", "publisher": "Salesforce Investor Relations", "source_type": "earnings_report", "published_date": "2025-02-26", "retrieved_date": "2026-09-04"},
+         "notes": "GAAP operating margin."},
+        {"metric_name": "operating_margin_pct", "value_numeric": 33.0, "unit": "percent", "period": "FY2025", "as_of_date": "2025-01-31",
+         "source": {"url": "https://investor.salesforce.com/news/news-details/2025/Salesforce-Announces-Fourth-Quarter-and-Fiscal-Year-2025-Results/default.aspx", "publisher": "Salesforce Investor Relations", "source_type": "earnings_report", "published_date": "2025-02-26", "retrieved_date": "2026-09-04"},
+         "notes": "Non-GAAP operating margin (excludes stock-based comp and other adjustments)."}
+      ],
+      "signals": []
+    },
+    {
+      "slug": "adobe",
+      "name": "Adobe Inc.",
+      "is_public": true,
+      "ticker": "ADBE",
+      "hq_location": "San Jose, CA",
+      "founded_year": null,
+      "description": "Creative, document, and digital experience software; Digital Media is the primary segment.",
+      "description_source": {
+        "url": "https://www.analystlens.com/stocks/adbe/10k/fy2025",
+        "publisher": "AnalystLens (10-K summary)", "source_type": "data_provider", "published_date": null, "retrieved_date": "2026-09-04"
+      },
+      "metrics": [
+        {"metric_name": "revenue", "value_numeric": 23770, "unit": "usd_millions", "period": "FY2025", "as_of_date": "2025-11-28",
+         "source": {"url": "https://www.analystlens.com/stocks/adbe/10k/fy2025", "publisher": "AnalystLens (10-K summary)", "source_type": "data_provider", "published_date": null, "retrieved_date": "2026-09-04"},
+         "notes": "Fiscal year ended Nov 28, 2025."},
+        {"metric_name": "operating_margin_pct", "value_numeric": 36.7, "unit": "percent", "period": "FY2025", "as_of_date": "2025-11-28",
+         "source": {"url": "https://www.analystlens.com/stocks/adbe/10k/fy2025", "publisher": "AnalystLens (10-K summary)", "source_type": "data_provider", "published_date": null, "retrieved_date": "2026-09-04"},
+         "notes": "Derived: operating income $8.71B / revenue $23.77B."}
+      ],
+      "signals": [
+        {"signal_type": "product_launch", "description": "Digital Media segment (largest segment) revenue grew 11% YoY to $17.65B in FY2025; total Annualized Recurring Revenue grew 11.5% YoY to $25.20B, indicating continued subscription expansion.", "signal_date": "2025-11-28",
+         "source": {"url": "https://www.analystlens.com/stocks/adbe/10k/fy2025", "publisher": "AnalystLens (10-K summary)", "source_type": "data_provider", "published_date": null, "retrieved_date": "2026-09-04"}}
+      ]
+    },
+    {
+      "slug": "servicenow",
+      "name": "ServiceNow, Inc.",
+      "is_public": true,
+      "ticker": "NOW",
+      "hq_location": "Santa Clara, CA",
+      "founded_year": null,
+      "description": "Enterprise workflow automation platform (IT service management, now expanding into AI agent orchestration).",
+      "description_source": {
+        "url": "https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-Reports-Fourth-Quarter-and-Full-Year-2025-Financial-Results-Board-of-Directors-Authorizes-Additional-5B-for-Share-Repurchase-Program/default.aspx",
+        "publisher": "ServiceNow Newsroom", "source_type": "earnings_report", "published_date": "2026-01-28", "retrieved_date": "2026-09-04"
+      },
+      "metrics": [
+        {"metric_name": "revenue", "value_numeric": 13278, "unit": "usd_millions", "period": "FY2025", "as_of_date": "2025-12-31",
+         "source": {"url": "https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-Reports-Fourth-Quarter-and-Full-Year-2025-Financial-Results-Board-of-Directors-Authorizes-Additional-5B-for-Share-Repurchase-Program/default.aspx", "publisher": "ServiceNow Newsroom", "source_type": "earnings_report", "published_date": "2026-01-28", "retrieved_date": "2026-09-04"},
+         "notes": "Subscription revenue was $12,883M, ~97% of total."},
+        {"metric_name": "revenue_growth_yoy", "value_numeric": 21, "unit": "percent", "period": "FY2025", "as_of_date": "2025-12-31",
+         "source": {"url": "https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-Reports-Fourth-Quarter-and-Full-Year-2025-Financial-Results-Board-of-Directors-Authorizes-Additional-5B-for-Share-Repurchase-Program/default.aspx", "publisher": "ServiceNow Newsroom", "source_type": "earnings_report", "published_date": "2026-01-28", "retrieved_date": "2026-09-04"},
+         "notes": null},
+        {"metric_name": "operating_margin_pct", "value_numeric": 13.5, "unit": "percent", "period": "FY2025", "as_of_date": "2025-12-31",
+         "source": {"url": "https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-Reports-Fourth-Quarter-and-Full-Year-2025-Financial-Results-Board-of-Directors-Authorizes-Additional-5B-for-Share-Repurchase-Program/default.aspx", "publisher": "ServiceNow Newsroom", "source_type": "earnings_report", "published_date": "2026-01-28", "retrieved_date": "2026-09-04"},
+         "notes": "GAAP operating margin."},
+        {"metric_name": "operating_margin_pct", "value_numeric": 31, "unit": "percent", "period": "FY2025", "as_of_date": "2025-12-31",
+         "source": {"url": "https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-Reports-Fourth-Quarter-and-Full-Year-2025-Financial-Results-Board-of-Directors-Authorizes-Additional-5B-for-Share-Repurchase-Program/default.aspx", "publisher": "ServiceNow Newsroom", "source_type": "earnings_report", "published_date": "2026-01-28", "retrieved_date": "2026-09-04"},
+         "notes": "Non-GAAP operating margin."}
+      ],
+      "signals": []
+    },
+    {
+      "slug": "palantir",
+      "name": "Palantir Technologies Inc.",
+      "is_public": true,
+      "ticker": "PLTR",
+      "hq_location": "Denver, CO",
+      "founded_year": null,
+      "description": "Data analytics and AI operating system software, serving government and commercial customers.",
+      "description_source": {
+        "url": "https://bullfincher.io/companies/palantir-technologies/revenue",
+        "publisher": "Bullfincher", "source_type": "data_provider", "published_date": null, "retrieved_date": "2026-09-04"
+      },
+      "metrics": [
+        {"metric_name": "revenue", "value_numeric": 4480, "unit": "usd_millions", "period": "FY2025", "as_of_date": "2025-12-31",
+         "source": {"url": "https://bullfincher.io/companies/palantir-technologies/revenue", "publisher": "Bullfincher", "source_type": "data_provider", "published_date": null, "retrieved_date": "2026-09-04"},
+         "notes": null},
+        {"metric_name": "revenue_growth_yoy", "value_numeric": 56.2, "unit": "percent", "period": "FY2025", "as_of_date": "2025-12-31",
+         "source": {"url": "https://bullfincher.io/companies/palantir-technologies/revenue", "publisher": "Bullfincher", "source_type": "data_provider", "published_date": null, "retrieved_date": "2026-09-04"},
+         "notes": "Up from $2.87B in FY2024 to $4.48B in FY2025."},
+        {"metric_name": "headcount", "value_numeric": 4429, "unit": "count", "period": "FY2025", "as_of_date": "2025-12-31",
+         "source": {"url": "https://bullfincher.io/companies/palantir-technologies/number-of-employees", "publisher": "Bullfincher", "source_type": "data_provider", "published_date": null, "retrieved_date": "2026-09-04"},
+         "notes": "Highest headcount in the 2020-2025 period tracked by this source."},
+        {"metric_name": "headcount_growth_yoy_pct", "value_numeric": 12.53, "unit": "percent", "period": "FY2025", "as_of_date": "2025-12-31",
+         "source": {"url": "https://bullfincher.io/companies/palantir-technologies/number-of-employees", "publisher": "Bullfincher", "source_type": "data_provider", "published_date": null, "retrieved_date": "2026-09-04"},
+         "notes": "Up from 3,936 employees in FY2024."}
+      ],
+      "signals": [
+        {"signal_type": "hiring", "description": "Headcount grew 12.53% YoY to 4,429 employees in FY2025, the highest level in the six-year period tracked (2020-2025), alongside 56% revenue growth.", "signal_date": "2025-12-31",
+         "source": {"url": "https://bullfincher.io/companies/palantir-technologies/number-of-employees", "publisher": "Bullfincher", "source_type": "data_provider", "published_date": null, "retrieved_date": "2026-09-04"}}
+      ]
+    }
+  ]
+}

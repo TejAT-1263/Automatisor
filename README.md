@@ -9,6 +9,8 @@ identically through a Streamlit UI and a FastAPI endpoint.
 Built for Automatisor's AI Engineer take-home. Every design decision below
 is expanded on, with alternatives and tradeoffs, in **[DECISIONS.md](DECISIONS.md)**
 — that file is the actual "why," this README is setup and orientation.
+Every `DECISIONS.md #N` mention below links straight to that numbered
+section, not just the top of the file.
 
 ## 1. Problem statement
 
@@ -41,33 +43,47 @@ about something outside its database.
 ```
 
 The only two front doors are `api/main.py` and `ui/app.py`; both call
-`agent.core.run_agent` and nothing else (DECISIONS.md #1). The only file
-that opens the database is `mcp_server/queries.py`; the agent reaches it
-exclusively through the real MCP protocol (DECISIONS.md #3).
+`agent.core.run_agent` and nothing else ([DECISIONS.md #1](DECISIONS.md#1-one-agent-core-called-by-both-the-api-and-the-ui)).
+The only file that opens the database is `mcp_server/queries.py`; the
+agent reaches it exclusively through the real MCP protocol
+([DECISIONS.md #3](DECISIONS.md#3-mcp-as-a-real-protocol-boundary-not-a-decorative-import)).
 
 ## 3. Why this design
 
-See **DECISIONS.md** for the full reasoning, alternatives considered, and
-costs of every choice below — this is a summary, not the argument:
+See **[DECISIONS.md](DECISIONS.md)** for the full reasoning, alternatives
+considered, and costs of every choice below — this is a summary, not the
+argument. Each item links straight to its section:
 
-1. One agent core shared by both interfaces.
-2. Direct source FK on every fact (no company↔source junction table); a
-   closed vocabulary for metric names.
-3. MCP as a real protocol boundary — verified with tests, not just
-   convention.
-4. Personas encoded as decision criteria to foreground/downweight, not
-   tone instructions.
-5. Confidence computed from the tool-call trace, never self-reported by
-   the model.
-6. Every sourced fact traces to a URL fetched in this session; gaps are
-   left empty, not estimated.
-7. Third-party package APIs (fastmcp, mcp, openai) verified against what's
-   actually installed in this environment, not recalled from training.
-8. The UI's sector dropdown goes through MCP but not through the full
-   agent loop, since it isn't an analytical query.
-9. Prompt-injection resistance is architectural (a narrow, read-only tool
+1. [One agent core shared by both interfaces.](DECISIONS.md#1-one-agent-core-called-by-both-the-api-and-the-ui)
+2. [Direct source FK on every fact (no company↔source junction table); a
+   closed vocabulary for metric names.](DECISIONS.md#2-database-schema-direct-source-fk-on-every-fact-no-company-source-junction-table)
+3. [MCP as a real protocol boundary — verified with tests, not just
+   convention.](DECISIONS.md#3-mcp-as-a-real-protocol-boundary-not-a-decorative-import)
+4. [Personas encoded as decision criteria to foreground/downweight, not
+   tone instructions.](DECISIONS.md#4-persona-differentiation-is-encoded-as-criteria-to-foregrounddownweight-not-tone-instructions)
+5. [Confidence computed from the tool-call trace, never self-reported by
+   the model.](DECISIONS.md#5-confidence-is-computed-from-the-tool-call-trace-never-self-reported-by-the-model)
+6. [Every sourced fact traces to a URL fetched in this session; gaps are
+   left empty, not estimated.](DECISIONS.md#6-every-sourced-fact-traces-to-a-url-actually-fetched-in-this-session-nothing-estimated-from-memory)
+7. [Third-party package APIs (fastmcp, mcp, openai) verified against what's
+   actually installed in this environment, not recalled from training.](DECISIONS.md#7-package-apis-were-verified-against-whats-actually-installed-not-recalled-from-training)
+8. [The UI's sector dropdown goes through MCP but not through the full
+   agent loop, since it isn't an analytical query.](DECISIONS.md#8-the-uis-sector-dropdown-calls-mcp-directly-not-through-run_agent)
+9. [Prompt-injection resistance is architectural (a narrow, read-only tool
    surface) with instructional wrapping as defense-in-depth, not a
-   keyword blocklist.
+   keyword blocklist.](DECISIONS.md#9-prompt-injection-resistance-is-architectural-not-a-keyword-blocklist)
+
+Bugs #10 through #17, each found and fixed through live testing after the
+first submission-ready pass, are not summarized here since they're a
+timeline rather than a standalone decision — read them directly:
+[#10](DECISIONS.md#10-persona-reassertion-right-before-the-final-answer-is-drafted),
+[#11](DECISIONS.md#11-few-shot-worked-examples-per-persona),
+[#12](DECISIONS.md#12-tool-forcing-safeguard-for-a-skipped-required-lookup),
+[#13](DECISIONS.md#13-proactive-detection-of-a-named-out-of-sector-company),
+[#14](DECISIONS.md#14-tool-forcing-must-trigger-on-budget-exhaustion-not-only-on-voluntary-stop),
+[#15](DECISIONS.md#15-a-malformed-tool-call-must-degrade-gracefully-not-crash-the-whole-request),
+[#16](DECISIONS.md#16-a-nudge-is-a-request-not-a-constraint---forcing-tool_choice-is-what-actually-works),
+[#17](DECISIONS.md#17-tool_choicerequired-constrains-that-a-tool-is-called-not-which-one).
 
 ## 4. Setup
 
@@ -94,7 +110,8 @@ Built db/agent.db
 ## 5. Running the MCP server
 
 Standalone, for manual testing (not required for the API/UI, which
-connect to it in-memory by default — see DECISIONS.md #3):
+connect to it in-memory by default — see
+[DECISIONS.md #3](DECISIONS.md#3-mcp-as-a-real-protocol-boundary-not-a-decorative-import)):
 
 ```bash
 python -m mcp_server.server            # stdio transport
@@ -138,7 +155,9 @@ that produced it.
 
 Full schema in `db/schema.sql`. Six tables: `sectors`, `companies`,
 `sources`, `company_metrics`, `company_signals` — no
-company↔source junction table; see DECISIONS.md #2 for why. Every fact in
+company↔source junction table; see
+[DECISIONS.md #2](DECISIONS.md#2-database-schema-direct-source-fk-on-every-fact-no-company-source-junction-table)
+for why. Every fact in
 `company_metrics`/`company_signals` carries a `source_id` and an
 `as_of_date`/`signal_date`.
 
@@ -158,7 +177,9 @@ a company's own release didn't have a figure) reputable financial data
 aggregators — every one of the 16 distinct sources is cited by URL on the
 fact it supports, and dated with when it was retrieved.
 
-**Known gaps** (see DECISIONS.md #6 for the full list): headcount is
+**Known gaps** (see
+[DECISIONS.md #6](DECISIONS.md#6-every-sourced-fact-traces-to-a-url-actually-fetched-in-this-session-nothing-estimated-from-memory)
+for the full list): headcount is
 missing for 6 of the 15 companies because no source fetched for this
 project disclosed a precise figure; Costco and UPS have only quarterly,
 not full fiscal-year, revenue recorded. These are left empty rather than
@@ -175,8 +196,8 @@ company: say so, don't guess.
 | PE Analyst | cash generation, operational-improvement levers, entry thesis | benchmark relevance, quarterly earnings nuance |
 
 Full criteria and the rendered prompt fragment: `agent/personas.py`.
-DECISIONS.md #4 explains why this is criteria-based rather than a tone
-instruction.
+[DECISIONS.md #4](DECISIONS.md#4-persona-differentiation-is-encoded-as-criteria-to-foregrounddownweight-not-tone-instructions)
+explains why this is criteria-based rather than a tone instruction.
 
 ## 11. Example prompts and outputs
 
@@ -210,24 +231,29 @@ made only the single `search_sector_context` call and produced answers
 built on the same two companies (Palantir, Adobe) and the same two
 qualitative signals (headcount growth, revenue growth), differing from
 each other mainly in phrasing rather than in which criteria they led
-with. **This is a real, currently-open gap, not smoothed over here** —
-see DECISIONS.md #4 for the full account of two rounds of fixes
-(strengthening the system prompt, lowering sampling temperature) that
-narrowed but did not close it: an LLM's compliance with a soft
-instruction to make an optional extra tool call is probabilistic, and the
-Equity Analyst complying while the other two didn't, on the identical
-prompt and model, is direct evidence of that. The mechanism works — the
-Equity Analyst answer above is proof — it just doesn't fire reliably for
-every persona on every call yet. DECISIONS.md #4's "what I'd improve"
-entry proposes the actual fix: a deterministic code-level gate rather
-than a prompt-level request.
+with. **This was a real, then-open gap** — see
+[DECISIONS.md #4](DECISIONS.md#4-persona-differentiation-is-encoded-as-criteria-to-foregrounddownweight-not-tone-instructions)
+for the full account of two rounds of fixes (strengthening the system
+prompt, lowering sampling temperature) that narrowed but did not close
+it: an LLM's compliance with a soft instruction to make an optional extra
+tool call is probabilistic, and the Equity Analyst complying while the
+other two didn't, on the identical prompt and model, is direct evidence
+of that. The mechanism works — the Equity Analyst answer above is proof —
+it just didn't fire reliably for every persona on every call at the time
+this section was written. The eventual, deterministic fix (a code-level
+gate rather than a prompt-level request) is what
+[DECISIONS.md #10 through #17](DECISIONS.md#10-persona-reassertion-right-before-the-final-answer-is-drafted)
+cover, the live-testing bug timeline that closes this gap for good; see
+section 12 below for the current, resolved status.
 
 ## 12. Known limitations
 
 - **Resolved and confirmed.** The live OpenAI tool-calling loop and
   structured-output call were run against a real API key (`gpt-4o-mini`)
   on 2026-09-04 and found three real bugs plus one test-brittleness issue
-  — full account in DECISIONS.md #7: (1) `tool_choice="none"` without a
+  — full account in
+  [DECISIONS.md #7](DECISIONS.md#7-package-apis-were-verified-against-whats-actually-installed-not-recalled-from-training):
+  (1) `tool_choice="none"` without a
   `tools` array is rejected by the live API even though it type-checks
   fine in the SDK; (2) the confidence/grounding computation only
   recognized `get_company_signals`'s response shape, so answers built
@@ -243,35 +269,42 @@ than a prompt-level request.
   dependency had been left in place one field over — the *displayed*
   `companies_referenced` list was still unioning in the model's
   self-reported field as a "safety net" — and corrected it to be purely
-  trace-derived too, before any further live testing; see DECISIONS.md #7
+  trace-derived too, before any further live testing; see
+  [DECISIONS.md #7](DECISIONS.md#7-package-apis-were-verified-against-whats-actually-installed-not-recalled-from-training)
   for the full mechanism and the correction. **Final confirmation, run by
   hand on the real machine on 2026-09-04:** `pytest tests/ -v -m "not
   live"` — 26 passed, offline; `pytest tests/test_stress.py -v -m live` —
   4 passed. **30 of 30 tests passing, live and offline, against the
   corrected code** — not a projected result, the actual output of a real
   run.
-- **Persona differentiation works but not reliably yet** — see DECISIONS.md
-  #4 and section 11 above for the real transcripts. The Equity Analyst
-  reliably pulls persona-specific metrics (margin, revenue) when it makes
-  the follow-up tool call the system prompt asks for; the Mutual Fund and
-  PE Analysts did not make that call in either of two live re-runs, so
-  their answers currently differ from each other mostly in wording rather
-  than in which data they lead with. Two mitigations (a stronger system
-  prompt, lower sampling temperature) narrowed this without closing it —
-  it's an LLM soft-instruction-compliance problem, not a code defect, and
-  the real fix (a deterministic tool-loop gate) is scoped but not yet
-  built, per DECISIONS.md #4's "what I'd improve" note.
+- **Persona differentiation: originally unreliable, later closed by a
+  deterministic fix.** See
+  [DECISIONS.md #4](DECISIONS.md#4-persona-differentiation-is-encoded-as-criteria-to-foregrounddownweight-not-tone-instructions)
+  and section 11 above for the real transcripts behind the original
+  finding, and
+  [DECISIONS.md #10 through #17](DECISIONS.md#10-persona-reassertion-right-before-the-final-answer-is-drafted)
+  for the full live-testing timeline that eventually closed it: a
+  code-level tool-forcing gate ([#12](DECISIONS.md#12-tool-forcing-safeguard-for-a-skipped-required-lookup),
+  [#14](DECISIONS.md#14-tool-forcing-must-trigger-on-budget-exhaustion-not-only-on-voluntary-stop),
+  [#16](DECISIONS.md#16-a-nudge-is-a-request-not-a-constraint---forcing-tool_choice-is-what-actually-works),
+  [#17](DECISIONS.md#17-tool_choicerequired-constrains-that-a-tool-is-called-not-which-one))
+  rather than a prompt-level request, replacing the two mitigations
+  (stronger system prompt, lower sampling temperature) that only narrowed
+  the gap without closing it.
 - 6 of 15 companies are missing a headcount figure; 2 have only quarterly
-  revenue. See DECISIONS.md #6.
+  revenue. See
+  [DECISIONS.md #6](DECISIONS.md#6-every-sourced-fact-traces-to-a-url-actually-fetched-in-this-session-nothing-estimated-from-memory).
 - `compute_confidence` (agent/guardrails.py) is a simple weighted formula,
   unit-tested for the properties it should have (monotonic in resolution
   rate, evidence volume, and freshness), not calibrated against labeled
   examples.
 - No corroborating multi-source facts — the schema supports exactly one
-  source per fact by design (DECISIONS.md #2).
+  source per fact by design
+  ([DECISIONS.md #2](DECISIONS.md#2-database-schema-direct-source-fk-on-every-fact-no-company-source-junction-table)).
 
 ## 13. What I'd improve with more time
 
-See the dedicated section at the end of **DECISIONS.md** — kept there,
-not duplicated here, so it stays attached to the reasoning it follows
-from.
+See the dedicated
+**["What I'd improve with more time"](DECISIONS.md#what-id-improve-with-more-time)**
+section at the end of DECISIONS.md — kept there, not duplicated here, so
+it stays attached to the reasoning it follows from.

@@ -6,11 +6,77 @@ A persona-configurable financial analysis agent. Pick one of 3 personas
 real SQLite database, retrieved exclusively through an MCP server, served
 identically through a Streamlit UI and a FastAPI endpoint.
 
-Built for Automatisor's AI Engineer take-home. Every design decision below
-is expanded on, with alternatives and tradeoffs, in **[DECISIONS.md](DECISIONS.md)**
-— that file is the actual "why," this README is setup and orientation.
-Every `DECISIONS.md #N` mention below links straight to that numbered
-section, not just the top of the file.
+Built for Automatisor's AI Engineer take-home. LLM provider: OpenAI
+(`gpt-4o-mini` by default, configurable via `OPENAI_MODEL`), used through
+the official Python SDK. The only key needed to run this is
+`OPENAI_API_KEY` — see Setup below. Every design decision below is
+expanded on, with alternatives and tradeoffs, in
+**[DECISIONS.md](DECISIONS.md)** — that file is the actual "why," this
+README is setup, orientation, and the write-up that follows. Every
+`DECISIONS.md #N` mention below links straight to that numbered section,
+not just the top of the file.
+
+## Write-up: schema, MCP design, and what I'd improve
+
+*(The take-home asks for a short write-up here — the rest of this README
+covers setup, running, and results; DECISIONS.md carries the full
+alternatives-and-costs reasoning behind every line below.)*
+
+**Schema.** Six tables (`db/schema.sql`): `sectors`, `companies`,
+`sources`, `company_metrics`, `company_signals`. The one decision worth
+explaining is what's *missing*: there's no `company↔source` junction
+table, even though an early planning pass assumed one. A source is a
+property of the specific claim it supports ("GXO's FY2025 revenue is
+$13,178M, per this press release"), not an abstract many-to-many link
+between a company and a source — so `company_metrics` and
+`company_signals` each carry `source_id` directly. That's the more
+correct 3NF choice, and it makes the grounding guardrail a single join
+away from "why does the agent believe this," at the cost of not being
+able to represent two sources corroborating the same fact (a real,
+accepted limitation — see [DECISIONS.md #2](DECISIONS.md#2-database-schema-direct-source-fk-on-every-fact-no-company-source-junction-table)).
+`metric_name` is a closed vocabulary enforced by a SQL `CHECK` constraint
+rather than free text, specifically so `compare_companies` never silently
+fails to match "Operating Margin" against "operating margin %" — a metric
+that doesn't fit the vocabulary is recorded as a note on an adjacent row
+or omitted outright, never mislabeled into the wrong bucket.
+
+**MCP design.** `mcp_server/queries.py` is the only file in the repo that
+opens `db/agent.db`. `agent/core.py` never imports it — the agent reaches
+data exclusively through `agent/mcp_client.py`, which wraps
+`fastmcp.Client` against the real `mcp_server.server.mcp` instance and
+calls `client.call_tool(...)`, the actual MCP wire protocol, not a Python
+function call dressed up to look like one. This is verified, not just
+asserted: `tests/test_mcp_tools.py` calls every tool through
+`fastmcp.Client(mcp)` against the real database. The transport is
+in-memory by default (`fastmcp.Client` talks to the `FastMCP` object
+directly, skipping a process boundary — one fewer moving part for a 3-day
+build), but setting `MCP_SERVER_URL` switches the exact same code to a
+standalone HTTP server process with zero code changes — see
+[DECISIONS.md #3](DECISIONS.md#3-mcp-as-a-real-protocol-boundary-not-a-decorative-import).
+Four tools are exposed to the model (`list_companies`,
+`get_company_signals`, `compare_companies`, `search_sector_context`), all
+read-only and scoped to this project's own tables — the actual
+prompt-injection defense is that even a fully successful injection can't
+do more than make a wrong-but-harmless tool call, not that the wrapping
+prompt catches every phrasing (see
+[DECISIONS.md #9](DECISIONS.md#9-prompt-injection-resistance-is-architectural-not-a-keyword-blocklist)).
+
+**One thing I'd improve with more time.** `compute_confidence`
+(`agent/guardrails.py`) is a simple weighted formula — a 50/30/20 blend of
+resolution rate, evidence volume, and freshness — and it is only
+unit-tested for the *properties* it should have (monotonic in each of
+those three inputs), never validated against a labeled set of "a human
+would call this high/medium/low confidence" examples. It's an honest,
+stated limitation rather than a hidden one, but it's the piece of this
+project I'd trust least under real use: two answers with very different
+real reliability could land at the same score if the formula's weights
+just happen not to capture what actually matters for a given question.
+Fixing it properly would mean building a small labeled eval set first
+(a dozen or so real query/answer pairs with a human-assigned confidence
+tier) and tuning or replacing the formula against that, rather than
+against its own internal consistency. Everything else on the "what I'd
+improve" list is in
+[DECISIONS.md's closing section](DECISIONS.md#what-id-improve-with-more-time).
 
 ## 1. Problem statement
 
